@@ -66,25 +66,25 @@ const run = async () => {
             res.send(products);
         })
 
-        // // update car
-        // app.put('/cars/:id', async (req, res) => {
-        //     const id = req.params.id;
-        //     const updateCar = req.body;
-        //     const filter = { _id: ObjectId(id) };
-        //     const options = { upsert: true };
-        //     const updateDoc = {
-        //         $set: {
-        //             name: updateCar.name,
-        //             suplier: updateCar.suplier,
-        //             price: updateCar.price,
-        //             quantity: updateCar.quantity,
-        //             description: updateCar.description,
-        //             image: updateCar.image
-        //         }
-        //     }
-        //     const result = await inventoryCollection.updateOne(filter, updateDoc, options);
-        //     res.send(result)
-        // })
+        // update car
+        app.put('/products/:id', async (req, res) => {
+            const id = req.params.id;
+            const updateProduct = req.body;
+            const filter = { _id: ObjectId(id) };
+            const options = { upsert: true };
+            const updateDoc = {
+                $set: {
+                    name: updateProduct.name,
+                    serviceProvider: updateProduct.serviceProvider,
+                    price: updateProduct.price,
+                    quantity: updateProduct.quantity,
+                    shortDescription: updateProduct.shortDescription,
+                    image: updateProduct.image
+                }
+            }
+            const result = await productCollection.updateOne(filter, updateDoc, options);
+            res.send(result)
+        })
 
         // DELETE
         app.delete('/product/:id', async (req, res) => {
