@@ -17,13 +17,6 @@ const run = async () => {
         await client.connect();
         const productCollection = client.db('warehouse').collection('product');
 
-        // use jwt
-        // app.post('/login', (req, res) => {
-        //     const email = req.body;
-        //     const token = jwt.sign(email, process.env.SECRET_KEY)
-        //     res.send({ token });
-        // })
-
         // add product
         app.post('/product', async (req, res) => {
             const newProduct = req.body;
@@ -33,9 +26,6 @@ const run = async () => {
 
         // get inventory from db
         app.get('/products', async (req, res) => {
-            // const pageNumber = Number(req.query.pageNumber);
-            // const limit = Number(req.query.limit);
-            // const count = await productCollection.estimatedDocumentCount();
             const query = {};
             const cursor = productCollection.find(query);
             const products = await cursor.toArray();
