@@ -40,15 +40,7 @@ const run = async () => {
         // })
 
         app.get('/myproduct', async (req, res) => {
-            // const decodedEmail = req?.decoded?.email;
             const email = req?.query?.email;
-            // if (email === decodedEmail) {
-
-            // }
-
-            // else {
-            //     res.status(403).send({ message: 'Forbidden access' })
-            // }
             const query = { email: email };
             console.log(email);
             const cursor = productCollection.find(query);
