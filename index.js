@@ -32,11 +32,11 @@ const run = async () => {
             res.send(products);
         })
 
-        // app.get('/cars/:id', async (req, res) => {
+        // app.get('/products/:id', async (req, res) => {
         //     const id = req.params.id;
         //     const query = { _id: ObjectId(id) };
-        //     const car = await inventoryCollection.findOne(query);
-        //     res.send(car);
+        //     const product = await productCollection.findOne(query);
+        //     res.send(product);
         // })
 
         app.get('/myproduct', async (req, res) => {
@@ -48,7 +48,7 @@ const run = async () => {
             res.send(products);
         })
 
-        // update car
+        // update product
         app.put('/products/:id', async (req, res) => {
             const id = req.params.id;
             const updateProduct = req.body;
@@ -87,7 +87,7 @@ run().catch(console.dir);
 
 
 app.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Server Site !')
 })
 
 app.listen(port, () => {
